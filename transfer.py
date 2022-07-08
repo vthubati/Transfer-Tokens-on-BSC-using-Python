@@ -29,15 +29,15 @@ transfer_tx = contract.functions.transfer(receiver, w3.toWei(amount, 'ether').bu
 'chainId': 56,
 'gas': = 210000,
 'gasprice': = w3.toWei(10,'gwei'),
-'nonce': = w3.eth.getTransactionCount(sender)
+'nonce': = w3.eth.get_transaction_Count(sender)
   })
                                           
  #sign transaction 
- tx_sign = w3.eth.account.signTransaction(transfer_tx,pk_send)
+ tx_sign = w3.eth.account.sign_transaction(transfer_tx,pk_send)
  
 #send a transaction
                                           
-send_tx = w3.eth.sendRawTransaction(tx_sign.rawTransaction)
+send_tx = w3.eth.send_raw_transaction(tx_sign.rawTransaction)
 print(send_tx)
                            
 
